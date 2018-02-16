@@ -1,0 +1,53 @@
+{
+  "name": "js-ligrary-seed",
+  "version": "0.0.1",
+  "description": "javascript library seed",
+  "main": "lib/js-library-seed.min.js",
+  "module": "src/index.js",
+  "modules.root": "src",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test nyc mocha ./src/**/*.spec.js",
+    "tdd": "cross-env NODE_ENV=test nyc mocha -w ./src/**/*.spec.js",
+    "build": "WEBPACK_ENV=build webpack",
+    "dev": "WEBPACK_ENV=dev webpack",
+    "prepublish": "npm run dev && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/callebedrums/js-library-seed.git"
+  },
+  "author": "Callebe Gomes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/callebedrums/js-library-seed/issues"
+  },
+  "homepage": "https://github.com/callebedrums/js-library-seed#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-istanbul": "^4.1.5",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "cross-env": "^5.1.3",
+    "mocha": "^5.0.1",
+    "nyc": "^11.4.1",
+    "uglifyjs-webpack-plugin": "^1.1.8",
+    "webpack": "^3.11.0"
+  },
+  "nyc": {
+    "require": [
+      "babel-register"
+    ],
+    "reporter": [
+      "lcov",
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "**/*.spec.js"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  }
+}
